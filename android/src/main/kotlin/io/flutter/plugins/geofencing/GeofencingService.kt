@@ -64,11 +64,9 @@ class GeofencingService : MethodCallHandler, JobIntentService() {
                         GeofencingPlugin.SHARED_PREFERENCES_KEY,
                         Context.MODE_PRIVATE)
                         .getLong(GeofencingPlugin.CALLBACK_DISPATCHER_HANDLE_KEY, 0)
-                var callbackInfo: FlutterCallbackInformation? = null
-                try{
-                    callbackInfo = FlutterCallbackInformation.lookupCallbackInformation(callbackHandle)
-                } catch (e: IllegalStateException){
-                    Log.e(TAG, "Fatal: IllegalStateException when looking up callback information", e)
+                if (callbackHandle == 0L) {
+                    Log.e(TAG, "Fatal: no callback registered")
+                    return
                 }
                 if (callbackInfo == null) {
                     Log.e(TAG, "Fatal: failed to find callback")
