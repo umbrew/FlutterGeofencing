@@ -20,7 +20,6 @@ import io.flutter.view.FlutterCallbackInformation
 import io.flutter.view.FlutterMain
 import io.flutter.view.FlutterNativeView
 import io.flutter.view.FlutterRunArguments
-import java.lang.IllegalStateException
 import java.util.ArrayDeque
 import java.util.concurrent.atomic.AtomicBoolean
 import java.util.UUID
@@ -68,6 +67,7 @@ class GeofencingService : MethodCallHandler, JobIntentService() {
                     Log.e(TAG, "Fatal: no callback registered")
                     return
                 }
+                val callbackInfo = FlutterCallbackInformation.lookupCallbackInformation(callbackHandle)
                 if (callbackInfo == null) {
                     Log.e(TAG, "Fatal: failed to find callback")
                     return
