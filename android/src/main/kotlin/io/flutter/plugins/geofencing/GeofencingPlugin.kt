@@ -42,7 +42,7 @@ class GeofencingPlugin(context: Context, activity: Activity?) : MethodCallHandle
     @JvmStatic
     val PERSISTENT_GEOFENCES_IDS = "persistent_geofences_ids"
     @JvmStatic
-    private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.ACCESS_FINE_LOCATION)
+    private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_BACKGROUND_LOCATION)
     @JvmStatic
     private val sGeofenceCacheLock = Object()
 
