@@ -92,6 +92,7 @@ class GeofencingService : MethodCallHandler, JobIntentService() {
         mBackgroundChannel = MethodChannel(sBackgroundFlutterEngine!!.getDartExecutor().getBinaryMessenger(),
                 "plugins.flutter.io/geofencing_plugin_background")
         mBackgroundChannel.setMethodCallHandler(this)
+        Thread.sleep(10000)
     }
 
    override fun onMethodCall(call: MethodCall, result: Result) {
