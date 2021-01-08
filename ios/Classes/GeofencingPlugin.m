@@ -164,13 +164,12 @@ static BOOL backgroundIsolateRun = NO;
   NSString *entrypoint = info.callbackName;
   NSString *uri = info.callbackLibraryPath;
   [_headlessRunner runWithEntrypoint:entrypoint libraryURI:uri];
-  NSAssert(registerPlugins != nil, @"failed to set registerPlugins");
 
   // Once our headless runner has been started, we need to register the application's plugins
   // with the runner in order for them to work on the background isolate. `registerPlugins` is
   // a callback set from AppDelegate.m in the main application. This callback should register
   // all relevant plugins (excluding those which require UI).
-  if (!backgroundIsolateRun) {
+  if (!backgroundIsolateRun && registerPlugins != nil) {
     registerPlugins(_headlessRunner);
   }
   [_registrar addMethodCallDelegate:self channel:_callbackChannel];
