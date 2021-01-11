@@ -28,10 +28,16 @@ static BOOL initialized = NO;
 static BOOL backgroundIsolateRun = NO;
 #pragma mark FlutterPlugin Methods
 
++ (void)deregister {
+  instance = nil;
+}
+
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar> *)registrar {
   @synchronized(self) {
+    if (instance == nil) {
       instance = [[GeofencingPlugin alloc] init:registrar];
       [registrar addApplicationDelegate:instance];
+    }
   }
 }
 
