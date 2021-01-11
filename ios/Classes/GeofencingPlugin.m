@@ -28,7 +28,7 @@ static BOOL initialized = NO;
 static BOOL backgroundIsolateRun = NO;
 #pragma mark FlutterPlugin Methods
 
-+ (void)deregister {
++ (void)detachFromEngine:(NSObject<FlutterPluginRegistrar> *)registrar {
   instance = nil;
 }
 
