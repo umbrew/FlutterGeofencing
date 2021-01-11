@@ -7,7 +7,7 @@
 
 @interface GeofencingPlugin : NSObject<FlutterPlugin, CLLocationManagerDelegate>
 
-+ (void)detach;
++ (void)deregister;
 
 @end
 #endif
