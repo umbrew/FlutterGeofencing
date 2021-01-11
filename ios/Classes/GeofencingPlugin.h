@@ -6,6 +6,8 @@
 #import <CoreLocation/CoreLocation.h>
 
 @interface GeofencingPlugin : NSObject<FlutterPlugin, CLLocationManagerDelegate>
+@required
++ (void)detach;
 
 @end
 #endif

@@ -32,6 +32,10 @@ static BOOL backgroundIsolateRun = NO;
   instance = nil;
 }
 
++ (void)detach {
+  instance = nil;
+}
+
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar> *)registrar {
   @synchronized(self) {
     if (instance == nil) {
