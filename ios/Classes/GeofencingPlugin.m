@@ -34,8 +34,10 @@ static BOOL backgroundIsolateRun = NO;
 
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar> *)registrar {
   @synchronized(self) {
-    instance = [[GeofencingPlugin alloc] init:registrar];
-    [registrar addApplicationDelegate:instance];
+    if (instance == nil) {
+      instance = [[GeofencingPlugin alloc] init:registrar];
+      [registrar addApplicationDelegate:instance];
+    }  
   }
 }
 
