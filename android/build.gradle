@@ -1,6 +1,4 @@
-group 'io.flutter.plugins.geofencing'
-version '1.0-SNAPSHOT'
-
+// NEW: This section replaces the old apply plugin statements
 buildscript {
     ext.kotlin_version = '1.5.30'
 
@@ -15,15 +13,20 @@ buildscript {
     }
 }
 
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+}
+
+group 'io.flutter.plugins.geofencing'
+version '1.0-SNAPSHOT'
+
 rootProject.allprojects {
     repositories {
         google()
         jcenter()
     }
 }
-
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 31

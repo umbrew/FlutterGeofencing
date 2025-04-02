@@ -1,0 +1,2 @@
+/Users/tashiwangdi/work/FlutterGeofencing/example/android/app/.cxx/Debug/e4i3n121/x86/CMakeFiles/edit_cache.dir
+/Users/tashiwangdi/work/FlutterGeofencing/example/android/app/.cxx/Debug/e4i3n121/x86/CMakeFiles/rebuild_cache.dir
