@@ -5,6 +5,7 @@
 package io.flutter.plugins.geofencing
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.PendingIntent
 import android.content.Context
@@ -23,7 +24,6 @@ import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 import io.flutter.plugin.common.MethodCall
-import io.flutter.plugin.common.PluginRegistry.Registrar
 import org.json.JSONArray
 
 class GeofencingPlugin : ActivityAware, FlutterPlugin, MethodCallHandler {
@@ -157,6 +157,7 @@ class GeofencingPlugin : ActivityAware, FlutterPlugin, MethodCallHandler {
       }.build()
     }
 
+    @SuppressLint("WrongConstant")
     @JvmStatic
     private fun getGeofencePendingIndent(context: Context, callbackHandle: Long): PendingIntent {
       val intent = Intent(context, GeofencingBroadcastReceiver::class.java)

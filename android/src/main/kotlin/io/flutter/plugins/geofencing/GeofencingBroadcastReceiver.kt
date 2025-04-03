@@ -8,7 +8,8 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.util.Log
-import io.flutter.view.FlutterMain
+import io.flutter.FlutterInjector
+import io.flutter.embedding.engine.loader.FlutterLoader
 
 
 class GeofencingBroadcastReceiver : BroadcastReceiver() {
@@ -16,8 +17,11 @@ class GeofencingBroadcastReceiver : BroadcastReceiver() {
         private const val TAG = "GeofencingBroadcastReceiver"
     }
     override fun onReceive(context: Context, intent: Intent) {
-        FlutterMain.startInitialization(context)
-        FlutterMain.ensureInitializationComplete(context, null)
-        GeofencingService.enqueueWork(context, intent)
+        val flutterLoader = FlutterInjector.instance().flutterLoader();
+        if (flutterLoader.initialized()) {
+            flutterLoader.startInitialization(context)
+            flutterLoader.ensureInitializationComplete(context, null)
+            GeofencingService.enqueueWork(context, intent)
+        }
     }
 }
